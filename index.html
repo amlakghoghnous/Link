@@ -1,66 +1,230 @@
-<!DOCTYPE html><html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>املاک ققنوس | Phoenix Real Estate</title>
   <link rel="icon" href="https://img.icons8.com/?size=512&id=42861&format=png" type="image/png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Montserrat:wght@400;600&display=swap">
   <style>
-    body {
+    :root {
+      --gold: #FFD700;
+      --dark-gold: #e6c200;
+      --black: #000000;
+      --dark-gray: #121212;
+      --light-gray: #2a2a2a;
+    }
+    
+    * {
       margin: 0;
-      font-family: 'Tahoma', sans-serif;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: #FFD700;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Naskh Arabic', 'Montserrat', sans-serif;
+      background: radial-gradient(circle at center, var(--dark-gray), var(--black));
+      color: var(--gold);
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
       padding: 20px;
+      position: relative;
+      overflow: hidden;
     }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23FFD700" stroke-width="0.5" opacity="0.1"/></svg>');
+      opacity: 0.15;
+      z-index: -1;
+    }
+    
     .container {
-      max-width: 600px;
+      max-width: 800px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--gold);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+      backdrop-filter: blur(5px);
+      position: relative;
+      overflow: hidden;
     }
+    
+    .container::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0) 70%);
+      z-index: -1;
+      animation: rotate 60s linear infinite;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 1.5em;
-      color: #dddddd;
-    }
-    .buttons a {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      position: relative;
       display: inline-block;
-      margin: 0.5em;
-      padding: 0.7em 1.5em;
-      background-color: #FFD700;
-      color: #000;
+    }
+    
+    h1::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    
+    .bilingual {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .bilingual p {
+      font-size: 1.5rem;
+      color: #dddddd;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      flex: 1;
+    }
+    
+    .bilingual .en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      color: #aaaaaa;
+      text-align: left;
+      direction: ltr;
+      margin-right: 20px;
+      flex: 1;
+    }
+    
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .buttons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      background-color: transparent;
+      color: var(--gold);
       text-decoration: none;
       font-weight: bold;
       border-radius: 8px;
-      transition: background-color 0.3s;
+      border: 2px solid var(--gold);
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+      position: relative;
+      overflow: hidden;
+      min-width: 200px;
     }
+    
+    .buttons a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
     .buttons a:hover {
-      background-color: #e6c200;
+      background-color: rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 15px var(--gold);
+      transform: translateY(-3px);
     }
-    .en {
-      margin-top: 2em;
-      font-size: 0.9em;
-      color: #aaaaaa;
+    
+    .buttons a:hover::before {
+      left: 100%;
+    }
+    
+    .footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      color: #777;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .bilingual {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .bilingual p, .bilingual .en {
+        text-align: center;
+        width: 100%;
+        margin-right: 0;
+      }
+      
+      .buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .buttons a {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>املاک ققنوس</h1>
-    <p>مشاور املاک، خرید و فروش، اجاره، سرمایه‌گذاری</p>
-    <div class="buttons">
-      <a href="https://wa.me/989362271281" target="_blank">تماس در واتساپ</a>
-      <a href="https://maps.app.goo.gl/uY9qjo1kx3ccr7vD9" target="_blank">موقعیت مکانی</a>
+    
+    <div class="bilingual">
+      <p>مشاور املاک، خرید و فروش، اجاره، سرمایه‌گذاری</p>
+      <div class="en">Real Estate Advisor - Buy | Sell | Rent | Invest</div>
     </div>
-    <div class="en">
-      <strong>Phoenix Real Estate</strong><br>
-      Real estate advisor - Buy | Sell | Rent | Invest
+    
+    <div class="buttons">
+      <a href="https://wa.me/989362271281" target="_blank">
+        <span>تماس در واتساپ</span>
+        <span class="en" style="margin-right: 8px;">WhatsApp</span>
+      </a>
+      <a href="https://maps.app.goo.gl/uY9qjo1kx3ccr7vD9" target="_blank">
+        <span>موقعیت مکانی</span>
+        <span class="en" style="margin-right: 8px;">Location</span>
+      </a>
+    </div>
+    
+    <div class="footer">
+      <div>Phoenix Real Estate © 2023</div>
     </div>
   </div>
 </body>
