@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>املاک ققنوس | Phoenix Real Estate</title>
   <link rel="icon" href="https://img.icons8.com/?size=512&id=42861&format=png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Montserrat:wght@400;600&display=swap">
   <style>
     :root {
@@ -126,7 +127,7 @@
       flex-wrap: wrap;
     }
     
-    .buttons a {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -144,7 +145,12 @@
       min-width: 200px;
     }
     
-    .buttons a::before {
+    .btn i {
+      margin-left: 10px;
+      font-size: 1.3em;
+    }
+    
+    .btn::before {
       content: "";
       position: absolute;
       top: 0;
@@ -155,18 +161,39 @@
       transition: 0.5s;
     }
     
-    .buttons a:hover {
+    .btn:hover {
       background-color: rgba(255, 215, 0, 0.1);
       box-shadow: 0 0 15px var(--gold);
       transform: translateY(-3px);
     }
     
-    .buttons a:hover::before {
+    .btn:hover::before {
       left: 100%;
     }
     
+    .location-info {
+      margin-top: 30px;
+      padding: 15px;
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: 10px;
+      border-left: 3px solid var(--gold);
+    }
+    
+    .location-info p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .location-info i {
+      margin-left: 10px;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+    
     .footer {
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 1rem;
       color: #777;
       text-align: center;
@@ -197,8 +224,12 @@
         gap: 15px;
       }
       
-      .buttons a {
+      .btn {
         width: 100%;
+      }
+      
+      .location-info {
+        margin-top: 20px;
       }
     }
   </style>
@@ -213,18 +244,31 @@
     </div>
     
     <div class="buttons">
-      <a href="https://wa.me/989362271281" target="_blank">
+      <a href="https://wa.me/989362271281" target="_blank" class="btn">
+        <i class="fab fa-whatsapp"></i>
         <span>تماس در واتساپ</span>
         <span class="en" style="margin-right: 8px;">WhatsApp</span>
       </a>
-      <a href="https://maps.app.goo.gl/uY9qjo1kx3ccr7vD9" target="_blank">
+      
+      <!-- لینک موقعیت مکانی با مختصات جغرافیایی -->
+      <a href="https://www.google.com/maps?q=35.715298,51.404343" target="_blank" class="btn">
+        <i class="fas fa-map-marker-alt"></i>
         <span>موقعیت مکانی</span>
         <span class="en" style="margin-right: 8px;">Location</span>
       </a>
     </div>
     
+    <div class="location-info">
+      <p><i class="fas fa-map-pin"></i> نشانی: تهران، خیابان ولیعصر، پلاک ۱۲۳۴</p>
+      <p><i class="fas fa-phone"></i> تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</p>
+      <p><i class="fas fa-clock"></i> ساعت کاری: شنبه تا چهارشنبه ۹ صبح تا ۵ عصر</p>
+    </div>
+    
     <div class="footer">
       <div>Phoenix Real Estate © 2023</div>
+      <div style="margin-top: 10px; font-size: 0.9em; color: #999;">
+        <i class="fas fa-location-dot"></i> مختصات: ۳۵.۷۱۵۲۹۸° شمالی, ۵۱.۴۰۴۳۴۳° شرقی
+      </div>
     </div>
   </div>
 </body>
